@@ -1,0 +1,46 @@
+<mat-card class="example-card">
+  <mat-card-header class="flex justify-start">
+    <img
+      mat-card-avatar
+      src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+      class=""
+      alt=""
+    />
+    <mat-card-title>{{ recipe.user?.fullName }}</mat-card-title>
+    <mat-card-subtitle>ky_mk</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    class="max-h-[400px] object-cover object-center"
+    [src]="recipe.image"
+    [alt]="recipe.title"
+  />
+  <mat-card-content>
+    <p>
+      {{ recipe.description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions class="flex justify-between">
+    <div>
+      <button mat-icon-button (click)="likeRecipe()" color="primary">
+        @if (recipe.likes?.includes(user.id)) {
+        <mat-icon>favorite</mat-icon>
+        } @else {
+        <mat-icon>favorite_border</mat-icon>
+        }
+      </button>
+      <button (click)="updateRecipeForm(recipe)" mat-icon-button color="">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="">
+        <mat-icon>share</mat-icon>
+      </button>
+      <!-- <share-buttons ></share-buttons> -->
+    </div>
+    <div>
+      <button mat-icon-button color="" (click)="deleteRecipe(recipe)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,133 @@
+<div class="flex justify-center items-center h-screen overflow-hidden">
+  <div class="container">
+    <div class="cover" [ngClass]="{ 'rotate-active': isResgister }">
+      <div class="front">
+        <img
+          src="https://images.pexels.com/photos/1660030/pexels-photo-1660030.jpeg?auto=compress&cs=tinysrgb&w=600"
+          alt=""
+        />
+        <div class="text">
+          <span class="text-1">
+            Share, Savor, and Create: Your Recipe Haven Awaits!
+          </span>
+          <span class="text-2">Let's get connected</span>
+        </div>
+      </div>
+      <div class="back">
+        <img
+          src="https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&w=600"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="form h-full">
+      <div class="form-content h-full">
+        <div class="signup-form">
+          <h1 class="text-lg font-bold text-center pb-8">Sign Up</h1>
+          <form
+            [formGroup]="registerForm"
+            (ngSubmit)="handleRegister()"
+            class=""
+          >
+            <div class="mb-4">
+              <mat-form-field class="w-full">
+                <mat-label class="text-gray-200">Full name</mat-label>
+                <input
+                  matInput
+                  placeholder="Full name"
+                  formControlName="fullName"
+                  class="py-2 px-3 text-gray-200 mt-1"
+                />
+              </mat-form-field>
+            </div>
+            <div class="mb-4">
+              <mat-form-field class="w-full">
+                <mat-label class="text-gray-200">Email</mat-label>
+                <input
+                  matInput
+                  type="email"
+                  placeholder="you@example.com"
+                  formControlName="email"
+                  class="py-2 px-3 text-gray-200 mt-1"
+                />
+              </mat-form-field>
+            </div>
+            <div class="mb-4">
+              <mat-form-field class="w-full">
+                <mat-label class="text-gray-200">Password</mat-label>
+                <input
+                  matInput
+                  type="password"
+                  formControlName="password"
+                  class="py-2 px-3 text-gray-200 mt-1"
+                />
+              </mat-form-field>
+            </div>
+            <div>
+              <button
+                class="w-full"
+                [disabled]="registerForm.invalid"
+                mat-raised-button
+                color="primary"
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </div>
+          </form>
+          <div class="text-center">
+            Already have an account?
+            <button mat-button (click)="toggleForm()" color="primary">
+              Sign In
+            </button>
+          </div>
+        </div>
+        <div class="login-form">
+          <h1 class="text-lg font-bold text-center pb-8">Sign In</h1>
+          <form [formGroup]="loginForm" (ngSubmit)="handlelogin()" class="">
+            <div class="mb-4">
+              <mat-form-field class="w-full">
+                <mat-label class="text-gray-200">Email</mat-label>
+                <input
+                  matInput
+                  type="email"
+                  placeholder="you@example.com"
+                  formControlName="email"
+                  class="py-2 px-3 text-gray-200 mt-1"
+                />
+              </mat-form-field>
+            </div>
+            <div class="mb-4">
+              <mat-form-field class="w-full">
+                <mat-label class="text-gray-200">Password</mat-label>
+                <input
+                  matInput
+                  type="password"
+                  formControlName="password"
+                  class="py-2 px-3 text-gray-200 mt-1"
+                />
+              </mat-form-field>
+            </div>
+            <div>
+              <button
+                class="w-full"
+                [disabled]="loginForm.invalid"
+                mat-raised-button
+                color="primary"
+                type="submit"
+              >
+                Sign In
+              </button>
+            </div>
+          </form>
+          <div class="text-center">
+            Don't have an account?
+            <button mat-button (click)="toggleForm()" color="primary">
+              Sign up
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
